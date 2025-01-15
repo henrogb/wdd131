@@ -1,0 +1,21 @@
+/* Layout for large screens */
+@media(min-width: 768px) {
+  header nav ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  .temples {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas para telas maiores */
+  }
+
+  figure img {
+    width: 100%; /* Imagens ocupam toda a largura da célula */
+    max-width: 400px; /* Tamanho máximo para telas maiores */
+    height: auto;
+  }
+
+  figcaption {
+    font-size: 1.1rem; /* Tamanho da fonte maior para telas grandes */
+  }
+}

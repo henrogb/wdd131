@@ -81,7 +81,13 @@ main {
     justify-content: center;
     align-items: center;
     margin: 10px;
+
 }
+
+::after{
+    
+}
+
 
 .image img {
     max-width: 100%;

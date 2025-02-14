@@ -28,3 +28,43 @@ document.addEventListener("DOMContentLoaded", () => {
         recipesList.appendChild(div);
     });
 });
+
+// site.js
+
+// Função para armazenar informações no localStorage
+function storeFormData(name, email, message) {
+    const formData = {
+        name: name,
+        email: email,
+        message: message
+    };
+    localStorage.setItem('contactFormData', JSON.stringify(formData)); // Armazenando os dados no localStorage
+}
+
+// Função para exibir uma mensagem de agradecimento após o envio do formulário
+function displayThankYouMessage() {
+    const messageDiv = document.createElement('div');
+    messageDiv.innerHTML = `<p>Thank you for your message. We will get back to you shortly!</p>`;
+    document.querySelector('main').appendChild(messageDiv);
+}
+
+// Função de evento de submissão do formulário
+function handleFormSubmit(event) {
+    event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+
+    // Coletando os dados do formulário
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Validando dados
+    if (name && email && message) {
+        storeFormData(name, email, message);  // Armazenando no localStorage
+        displayThankYouMessage();  // Exibindo mensagem de agradecimento
+    } else {
+        alert('Please fill in all fields.');
+    }
+}
+
+// Adicionando um ouvinte de evento ao formulário
+document.getElementById('form').addEventListener('submit', handleFormSubmit);
